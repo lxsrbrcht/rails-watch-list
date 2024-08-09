@@ -6,7 +6,7 @@
       <ul></ul>
       <li><%= bookmark.movie.title %></li>
       <li><%= bookmark.comment %></li>
-      <%= link_to "Remove Bookmark", delete_bookmark_path(bookmark) %>
+      <%= link_to "Remove Bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </ul>
     </div>
   <% end %>
