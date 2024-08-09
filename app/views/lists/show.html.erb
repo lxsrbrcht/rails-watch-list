@@ -1,3 +1,16 @@
 <h1><%=  @list.name %></h1>
-<%= render @list.movies %>
+<div id="movies">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div id="card-movie">
+      <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 200 %>
+      <ul></ul>
+      <li><%= bookmark.movie.title %></li>
+      <li><%= bookmark.comment %></li>
+      <%= link_to "Remove Bookmark", delete_bookmark_path(bookmark) %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 <%= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
+<%= link_to "Kill this List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Back to My Lists", lists_path %>

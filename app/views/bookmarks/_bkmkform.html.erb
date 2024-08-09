@@ -1,6 +1,6 @@
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :name %>
+  <%= f.input :comment %>
   <%= f.association :movie %>
-  <%= f.association :list %>
+  <%= f.association :list, as: :radio_buttons %>
   <%= f.button :submit %>
 <% end %>
